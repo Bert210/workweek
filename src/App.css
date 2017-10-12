@@ -1,0 +1,51 @@
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.day-container {
+  display: flex;
+  padding: 20px;
+}
+
+.day-container:hover {
+  background-color: #DDD;
+}
+
+
+.day-name {
+  margin-right: 10px;
+}
+
+.day-active {
+  margin-left: 10px;
+}
