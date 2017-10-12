@@ -1,10 +1,14 @@
 import React from 'react'
 
+import TimeSetter from './TimeSetter'
+
+const logChange = (data) => {
+  console.log(data)
+}
 
 const DayView = ({match}) => (
   <div>
-    Hello inside DayView you are.
-    {match.params.id}
+    <TimeSetter onUpdate={logChange}/>
   </div>
 )
 
