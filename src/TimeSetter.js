@@ -1,11 +1,12 @@
 import React from 'react'
 
 
-const TimeSetter = ({match}, props) => {
+const TimeSetter = ({match, onTimeChange}) => {
+
+
   return (
     <div>
-      {console.log(props)}
-      <input id="hour" type="number" defaultValue="8" onChange={(e) => props.onUpdate(e)}/>:<input id="minute" type="number" defaultValue="00"/> <input id="pm" type="checkbox" defaultChecked={false}/> PM
+      <input id="hour" type="number" defaultValue="8" onChange={(e) => onTimeChange({type:"hour", value:e.target.value})}/>:<input id="minute" type="number" defaultValue="00"/> <input id="pm" type="checkbox" defaultChecked={false}/> PM
     </div>
   );
 }

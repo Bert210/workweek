@@ -1,15 +1,13 @@
 import React from 'react'
 
-import TimeSetter from './TimeSetter'
+import TimePair from './TimePair'
 
-const logChange = (data) => {
-  console.log(data)
+const logChange = (event) => {
+  console.log(event)
 }
 
-const DayView = ({match}) => (
-  <div>
-    <TimeSetter onUpdate={logChange}/>
-  </div>
+const DayView = () => (
+  <TimePair onTimeChange={logChange}/>
 )
 
 export default DayView

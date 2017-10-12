@@ -8,7 +8,7 @@ export default class WeekView extends Component {
     let days = []
     for(let i = 0; i < 7; i++){
       let linkTo = `/day/${i}`
-      days.push(<Link to={linkTo} ><Day id={i} /></Link>)
+      days.push(<Link to={linkTo} id={i}><Day id={i} /></Link>)
     }
 
     return days
