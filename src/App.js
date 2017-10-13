@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ReactRouter, {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 // import Router from ReactRouter.BrowserRouter
 // import Route from ReactRouter.Route
 
