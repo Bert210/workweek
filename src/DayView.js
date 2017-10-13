@@ -9,13 +9,18 @@ const logChange = (event) => {
 
 const DayView = () => (
   <div>
+    {/* <ViewBar> */}
+    <div>
+      <Button onClick={(e) => {console.log(e)}}>
+        Add Time
+      </Button>
+      <Button onClick={() => {}}>
+        Save
+      </Button>
+    </div>
+    {/* </ViewBar> */}
     <TimePair onTimeChange={logChange}/>
-    <Button onClick={(e) => {console.log(e)}}>
-      Add Time
-    </Button>
-    <Button onClick={() => {}}>
-      Save
-    </Button>
+
   </div>
 )
 
