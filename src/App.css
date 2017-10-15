@@ -1,10 +1,15 @@
+html, body, #root {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: blue;
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
+  height: 100%;
 }
 
 .App-logo {
@@ -50,14 +55,8 @@ a {
   margin-left: 10px;
 }
 
-.btn {
-  width: 100px;
-  border-radius: 5px;
-  background-color: #bada55;
-  padding: 5px;
-}
-
-.btn:hover {
-  background-color: #DDD;
-  cursor: pointer;
+.work-area {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }

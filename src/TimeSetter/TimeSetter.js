@@ -33,11 +33,11 @@ const TimeSetter = ({match, onTimeChange}) => {
       <input 
         id="minute" 
         type="number" 
-        defaultValue={minute}/> 
+        defaultValue={updateMinute}/> 
       <input 
         id="pm" 
         type="checkbox" 
-        defaultChecked={isPM}/> PM
+        defaultChecked={updatePM}/> PM
 
         <div>{hour}:{minute} {isPM ? "PM" : "AM"}</div>
     </div>

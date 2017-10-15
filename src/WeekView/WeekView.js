@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
 
-import Day from './Day'
+import Day from '../Day/Day'
 
 export default class WeekView extends Component {
   createDays = () => {
     let days = []
     for(let i = 0; i < 7; i++){
       let linkTo = `/day/${i}`
-      days.push(<Link to={linkTo} id={i}><Day id={i} /></Link>)
+      days.push(<Day id={i} />)
     }
 
     return days
