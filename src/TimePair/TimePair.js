@@ -1,5 +1,5 @@
 import React from 'react'
-import TimeSetter from './TimeSetter'
+import TimeSetter from '../TimeSetter/TimeSetter'
 
 
 

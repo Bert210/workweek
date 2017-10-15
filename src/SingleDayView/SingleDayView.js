@@ -1,21 +1,18 @@
 import React from 'react'
 
-import TimePair from './TimePair'
-import Button from './Button'
+import TimePair from '../TimePair/TimePair'
+import Button from '../Buttons/Button'
 
 const logChange = (event) => {
   console.log(event)
 }
 
-const DayView = () => (
+const SingleDayView = () => (
   <div>
     {/* <ViewBar> */}
     <div>
       <Button onClick={(e) => {console.log(e)}}>
         Add Time
-      </Button>
-      <Button onClick={() => {}}>
-        Save
       </Button>
     </div>
     {/* </ViewBar> */}
@@ -24,4 +21,4 @@ const DayView = () => (
   </div>
 )
 
-export default DayView
+export default SingleDayView
