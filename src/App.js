@@ -6,6 +6,8 @@ import TitleBar from './Components/TitleBar'
 import SideBar from './Components//SideBar'
 import MainArea from './Components//MainArea'
 
+
+
 import './App.css'
 
 
@@ -15,8 +17,9 @@ class App extends Component {
       <div className="App">
         <TitleBar />
         <div className="work-area">
-          <SideBar />
-          <MainArea />
+            <SideBar />
+            <MainArea />
+
         </div>
       </div>
     );
