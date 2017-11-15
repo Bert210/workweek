@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
-const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", 
+                      "Thursday", "Friday", "Saturday"]
 
 export default class Day extends Component {
   getName = () => {
