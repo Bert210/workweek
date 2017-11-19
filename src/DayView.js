@@ -2,11 +2,11 @@ import React from 'react'
 
 import {connect} from 'react-redux';
 
-const DayView = ({match}) => (
+const DayView = (props) => (
   <div>
     Hello inside DayView you are.
     <br/>
-    {match.params.id}
+    {props.match.params.id}
 
     <button>Add Time</button>
   </div>
@@ -14,13 +14,15 @@ const DayView = ({match}) => (
 
 const mapStateToProps = (state) => ({
 	// time: state.time
+	// days: state.days
+	count: state.count,
 })
 
-const mapDispatchToProps = (dispatch) => {
+// const mapDispatchToProps = (dispatch) => {
 
-}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DayView)
+export default connect(mapStateToProps, null)(DayView)
 
 /*
 const mapStateToProps = (state) => ({
