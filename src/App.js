@@ -25,8 +25,6 @@ class App extends Component {
         <ConnectedRouter history={history}>
         <div className="App">
           <Route exact path="/" component={WeekView} />
-
-            </Switch>
           </div>
       </Router>
       </Provider>
