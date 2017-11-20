@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
-const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", 
+                      "Thursday", "Friday", "Saturday"]
 
 export default class Day extends Component {
   getName = () => {
@@ -9,8 +10,8 @@ export default class Day extends Component {
   render() {
     return (
       <div className="day-container">
-        <div className="day-name">{this.getName()}</div>
-        <div className="day-active">active:false</div>
+        <div className="day-name">{this.props.name}</div>
+        <div className="day-active">active:{this.props.active ? "true" : "false"}</div>
       </div>
     )
   }

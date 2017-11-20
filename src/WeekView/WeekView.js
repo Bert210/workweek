@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 import Day from '../Day/Day'
 
-export default class WeekView extends Component {
-  createDays = () => {
-    let days = []
-    for(let i = 0; i < 7; i++){
-      let linkTo = `/day/${i}`
-      days.push(<Day id={i} />)
-    }
+/* May need to convert this to a presental component */
 
-    return days
-  }
-
+class WeekView extends Component {
   render() {
-    let days = this.createDays()
+    //let days = this.createDays()
 
-    return <div>
-      Week of {this.props.of}
-      {days}
+    return ( 
+      <div>
+      days.push(<Link to={linkTo} ><Day id={i} /></Link>)
       </div>
+    )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    days: state.days,
+    times: state.times 
+  }
+}
+
+export default connect(mapStateToProps, null)(WeekView)

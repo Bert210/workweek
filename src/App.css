@@ -55,8 +55,10 @@ a {
   margin-left: 10px;
 }
 
-.work-area {
-  display: flex;
+  width: 240px;
+}
   flex-direction: row;
-  height: 100%;
+.MainPane {
+  display: inline-block;
+  vertical-align: top;
 }

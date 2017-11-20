@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-// import Router from ReactRouter.BrowserRouter
-// import Route from ReactRouter.Route
+import ReactRouter, {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import TitleBar from './Components/TitleBar'
+import { Provider } from 'react-redux'
+
+import createHistory from 'history/createBrowserHistory'
+
+import { ConnectedRouter } from 'react-router-redux'
+
 import SideBar from './Components//SideBar'
 import MainArea from './Components//MainArea'
 
@@ -10,18 +14,22 @@ import MainArea from './Components//MainArea'
 
 import './App.css'
 
+const history = createHistory()
+
+const store = storeCreator({}, history)
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TitleBar />
-        <div className="work-area">
-            <SideBar />
-            <MainArea />
+      <Router>
+        <ConnectedRouter history={history}>
+        <div className="App">
+          <Route exact path="/" component={WeekView} />
 
-        </div>
-      </div>
+            </Switch>
+          </div>
+      </Router>
+      </Provider>
     );
   }
 }
