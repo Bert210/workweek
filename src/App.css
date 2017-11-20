@@ -49,3 +49,14 @@ a {
 .day-active {
   margin-left: 10px;
 }
+
+.SideBar {
+  width: 240px;
+  display: inline-block; 
+}
+
+.MainPane {
+  width: 800px;
+  display: inline-block;
+  vertical-align: top;
+}

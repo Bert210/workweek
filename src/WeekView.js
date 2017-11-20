@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 import Day from './Day'
 
-export default class WeekView extends Component {
-  constructor(props) {
-    super(props)
+/* May need to convert this to a presental component */
 
-    this.state = {
-      punchcards:[
-        {id:0, dayPointer:1, time: {
-          in:{hour: 8, min: 12},
-          out: {hour: 13, min: 45},
-          total: {hour: 5, min: 33}
-        }},
-      ]
-    }
-  }
-
-  createDays = () => {
-    let days = []
-    for(let i = 0; i < 7; i++){
-      let linkTo = `/day/${i}`
-      days.push(<Link to={linkTo} ><Day id={i} /></Link>)
-    }
-
-    return days
-  }
-
+class WeekView extends Component {
   render() {
-    let days = this.createDays()
+    //let days = this.createDays()
 
-    return <div>
-      Week of {this.props.of}
-      {days}
+    return ( 
+      <div>
+        {this.props.days.map(day => (<Link key={day.id} to={`/day/${day.id}`}><Day {...day} /></Link>))}  
       </div>
+    )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    days: state.days,
+    times: state.times 
+  }
+}
+
+export default connect(mapStateToProps, null)(WeekView)
