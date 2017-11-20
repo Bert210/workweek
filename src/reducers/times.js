@@ -23,8 +23,8 @@ const updateTotals = (state) => {
   */
 
 const timeReducer = (state = initState, action) => {
-  console.log(action)
-  switch(action.type){
+ 	console.log(action) 
+	switch(action.type){
     case(UPDATE_TIME):
       return state.map( time => { if (time.id === action.id) {  
       }

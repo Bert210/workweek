@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactRouter, {BrowserRouter as Router, Route} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
 
@@ -7,10 +7,9 @@ import createHistory from 'history/createBrowserHistory'
 
 import { ConnectedRouter } from 'react-router-redux'
 
-import SideBar from './Components//SideBar'
-import MainArea from './Components//MainArea'
-
-
+import { storeCreator } from './store'
+import WeekView from './WeekView/WeekView'
+import DayView from './DayView'
 
 import './App.css'
 
@@ -21,14 +20,17 @@ const store = storeCreator({}, history)
 class App extends Component {
   render() {
     return (
-      <Provider>
-        <Router>
+      <Provider store={store}>
           <ConnectedRouter history={history}>
-            <div className="App">
-              <Route exact path="/" component={WeekView} />
+           <div className="App">
+            <div className="SideBar">
+              <WeekView />
             </div>
-          <ConnectedRouter />
-        </Router>
+            <Switch>
+              <Route path="/day/:id" component={DayView} />
+            </Switch>
+					</div> 
+        </ConnectedRouter>
       </Provider>
     );
   }

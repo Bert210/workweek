@@ -9,13 +9,13 @@ import {addTime, removeTime} from './actions/time'
 import TimeView from './components/TimeView'
 
 const DayView = (props) => {
-  let dayRef = props.match.params.id
+  let dayRef = parseInt(props.match.params.id, 10)
 
   let times = props.time.filter(time => {
-    return time.dayRef == props.match.params.id
+    return time.dayRef === dayRef 
   })
+  console.log(times)
   return (<div className="MainPane">
-    Hello inside DayView you are.
     <div>
       {times.map(time => {
         return (
@@ -30,7 +30,6 @@ const DayView = (props) => {
 
 const mapStateToProps = (state) => ({
   time: state.times,
-	// days: state.days
 })
 
 const mapDispatchToProps = (dispatch) => {
