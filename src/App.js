@@ -21,12 +21,14 @@ const store = storeCreator({}, history)
 class App extends Component {
   render() {
     return (
-      <Router>
-        <ConnectedRouter history={history}>
-        <div className="App">
-          <Route exact path="/" component={WeekView} />
-          </div>
-      </Router>
+      <Provider>
+        <Router>
+          <ConnectedRouter history={history}>
+            <div className="App">
+              <Route exact path="/" component={WeekView} />
+            </div>
+          <ConnectedRouter />
+        </Router>
       </Provider>
     );
   }
