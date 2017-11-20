@@ -55,10 +55,21 @@ a {
   margin-left: 10px;
 }
 
-  width: 240px;
-}
+<<<<<<< HEAD
+.work-area {
+  display: flex;
   flex-direction: row;
+  height: 100%;
+}
+=======
+.SideBar {
+  width: 240px;
+  display: inline-block; 
+}
+
 .MainPane {
+  width: 800px;
   display: inline-block;
   vertical-align: top;
 }
+>>>>>>> holdings

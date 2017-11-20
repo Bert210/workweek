@@ -1,0 +1,33 @@
+.title-bar {
+  height: 64px;
+  width: 100%;
+  background-color: #13AE9C;
+  border-bottom: black 2px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.left-arrow {
+  color: white;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.left-arrow:hover {
+  color:  #222;
+  cursor: pointer;
+}
+
+.right-arrow {
+  color: white;
+
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.right-arrow:hover {
+  color:  #222;
+  cursor: pointer;
+}

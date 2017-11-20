@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux'
-import counterReducer from './counter';
+import daysReducer from './days';
+import timesReducer from './times';
 
+// Don't combine reducers because we are combining them in store.js
 
-const rootReducer = combineReducers({
-	count: counterReducer,
-})
+const reducer = {
+  days: daysReducer,
+  times: timesReducer,
+}
 
-export default rootReducer
+export default reducer

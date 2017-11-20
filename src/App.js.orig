@@ -1,0 +1,61 @@
+import React, { Component } from 'react';
+<<<<<<< HEAD
+// import Router from ReactRouter.BrowserRouter
+// import Route from ReactRouter.Route
+=======
+
+import { Route, Switch } from 'react-router-dom'
+
+import { Provider } from 'react-redux'
+
+import createHistory from 'history/createBrowserHistory'
+
+import { ConnectedRouter } from 'react-router-redux'
+
+import {storeCreator} from './store'
+>>>>>>> holdings
+
+import TitleBar from './Components/TitleBar'
+import SideBar from './Components//SideBar'
+import MainArea from './Components//MainArea'
+
+
+
+import './App.css'
+
+
+const history = createHistory()
+
+const store = storeCreator({}, history)
+
+class App extends Component {
+  render() {
+    return (
+<<<<<<< HEAD
+      <div className="App">
+        <TitleBar />
+        <div className="work-area">
+            <SideBar />
+            <MainArea />
+
+        </div>
+      </div>
+=======
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <div className="App">
+            <div className="SideBar">
+              <WeekView />
+            </div>
+            <Switch>
+              <Route path="/day/:id" component={DayView} />
+            </Switch>
+          </div>
+        </ConnectedRouter>
+      </Provider>
+>>>>>>> holdings
+    );
+  }
+}
+
+export default App;
