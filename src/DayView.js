@@ -14,7 +14,6 @@ const DayView = (props) => {
   let times = props.time.filter(time => {
     return time.dayRef === dayRef 
   })
-  console.log(times)
   return (<div className="MainPane">
     <div>
       {times.map(time => {

@@ -10,6 +10,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import { storeCreator } from './store'
 import WeekView from './WeekView/WeekView'
 import DayView from './DayView'
+import WelcomeView from './Components/WelcomeView' 
 
 import './App.css'
 
@@ -27,6 +28,7 @@ class App extends Component {
               <WeekView />
             </div>
             <Switch>
+              <Route exact path="/" component={WelcomeView}/>
               <Route path="/day/:id" component={DayView} />
             </Switch>
 					</div> 

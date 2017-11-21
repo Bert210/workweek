@@ -23,14 +23,14 @@ const updateTotals = (state) => {
   */
 
 const timeReducer = (state = initState, action) => {
- 	console.log(action) 
 	switch(action.type){
+    /* 
     case(UPDATE_TIME):
       return state.map( time => { if (time.id === action.id) {  
       }
         return time 
       })
-
+    */
     case("FILTER_TIME_BY_ID"):
       return state.filter(time => { return time.id === action.id });
     case(ADD_TIME):
@@ -56,6 +56,13 @@ const timeReducer = (state = initState, action) => {
     case(REMOVE_TIME):
       console.log(action.id) 
       return state.filter(time => (time.id !== action.id))
+    case(UPDATE_TIME):
+      return state.map(time => { 
+        if(time.id === action.id){
+          return action.time 
+        }
+        return time
+      })
     default:
       return state
   }
