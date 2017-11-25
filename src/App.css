@@ -35,6 +35,7 @@ a {
 .day-container {
 	display: flex;
 	padding: 20px;
+	justify-content: space-between;
 }
 
 .day-container:hover {
@@ -43,10 +44,12 @@ a {
 
 .day-name {
 	margin-right: 10px;
+	width: 100px;
 }
 
 .day-active {
 	margin-left: 10px;
+	float: right;
 }
 
 .SideBar {
