@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {updateTime} from '../actions/time.js'
 
 import TimeInput from '../Components/TimeInput'
+import {getMilitaryTimeFromMinutes} from '../TimeUtil'
 
 class TimeView extends React.Component {
   constructor(props){
@@ -31,7 +32,7 @@ class TimeView extends React.Component {
   }
 
   handleChange = (value, id) => {
-    let {inTime, outTime} = this.state
+    //let {inTime, outTime} = this.state
       /*
     switch(id){
       case("inTimeHour"):
@@ -90,7 +91,9 @@ class TimeView extends React.Component {
   }
 
   render() {
+    let total = getMilitaryTimeFromMinutes(this.state.totalTime.minute) 
     return(
+
       <div>
         <form>
           <TimeInput {...this.state.inTime} />
@@ -98,7 +101,8 @@ class TimeView extends React.Component {
           
           <TimeInput {...this.state.outTime} />
           <br/>
-          <span>Total: {this.state.totalTime.hour}:{this.state.totalTime.minute}</span>
+
+          <span>Total: {total.hour}:{total.minute}</span>
         </form>
 
         <button onClick={
