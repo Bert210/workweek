@@ -1,6 +1,20 @@
 import {UPDATE_TIME, ADD_TIME, REMOVE_TIME} from '../actions/time.js'
 
-const initState = []
+const initState = [
+  {
+    id: 0,
+    dayRef: 1,
+    inTime: {
+      minute: 13 * 60 + 33,
+    },
+    outTime: {
+      minute: 17 * 60 + 12
+    },
+    totalTime: {
+      minute: 3 * 60 + 49
+    }
+  }
+]
 
 let id = 0 
 /*
@@ -40,16 +54,13 @@ const timeReducer = (state = initState, action) => {
           id: id++,
           dayRef: action.dayRef,
           inTime: {
-            hour: 8,
-            minute: 0
+            minute: 8 * 60
           },
           outTime: {
-            hour: 12,
-            minute: 30
+            minute: 12 * 60 + 30
           },
           totalTime: {
-            hour: 4,
-            minute: 30
+            minute: 4 * 60 + 30
           }
         }
       ]

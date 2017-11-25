@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux'
 import {addTime, removeTime} from './actions/time'
 
 
-import TimeView from './components/TimeView'
+import TimeView from './Components/TimeView'
 
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)
