@@ -63,3 +63,6 @@ a {
 	vertical-align: top;
 }
 
+.tsn-item {
+	display: inline-block;
+}

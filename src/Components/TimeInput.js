@@ -32,7 +32,7 @@ class TimeInput extends React.Component {
     return (
       <div>
         <TimeStateManager />
-        <input 
+        {/* <input 
           type="number" 
           defaultValue={this.state.hour} 
           onChange={this.handleChangeHour}
@@ -48,7 +48,7 @@ class TimeInput extends React.Component {
             checked={this.state.pm}
             onChange={this.handleChangeAMPM} 
           />
-        </label>
+        </label> */}
       </div>
     )
   }

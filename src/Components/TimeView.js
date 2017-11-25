@@ -95,7 +95,9 @@ class TimeView extends React.Component {
     return(
 
       <div>
-        <form>
+        <TimeInput {...this.state.inTime} />
+        <TimeInput {...this.state.outTime} />
+        {/* <form>
           <TimeInput {...this.state.inTime} />
           <br/>
           
@@ -103,7 +105,7 @@ class TimeView extends React.Component {
           <br/>
 
           <span>Total: {total.hour}:{total.minute}</span>
-        </form>
+        </form> */}
 
         <button onClick={
           () => { this.props.removeTime(this.props.id) } 

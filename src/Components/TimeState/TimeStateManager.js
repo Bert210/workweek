@@ -12,7 +12,7 @@ class TimeStateManager extends React.Component {
     super(props)
 
     this.state = {
-      mode: EDIT_STATE 
+      mode: NORMAL_STATE 
     }
   }
 
@@ -30,7 +30,7 @@ class TimeStateManager extends React.Component {
   render() {
     switch(this.state.mode){
       case(NORMAL_STATE):
-        return <TimeStateNormal />
+        return <TimeStateNormal onToggle={this.toggleState}/>
       case(EDIT_STATE):
         return <TimeStateEdit />
       default:

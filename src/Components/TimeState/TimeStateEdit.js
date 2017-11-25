@@ -2,7 +2,10 @@ import React from 'react'
 
 const TimeStateEdit = () => {
   return (
-    <h3>Time State Edit</h3>
+    <form>
+    <input />
+    <input type="submit" hidden />
+    </form>
   )
 }
 
