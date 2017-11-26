@@ -1,54 +1,31 @@
 import React from 'react'
 
-import TimeStateManager from './TimeState/TimeStateManager'
 import { getTimeFromMinutes } from '../TimeUtil'
 
 class TimeInput extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      ...getTimeFromMinutes(this.props.minute),
-      rawTime: this.props.minute
-    }
-  }
-
-  updateRawTime = () => {
-  }
-
   handleChangeHour = (e) => {
-    this.setState({
+    this.props.onChange({
       hour: e.target.valueAsNumber
     })
-
   }
-
   handleChangeMinute = (e) => {
+    this.props.onChange({
+      minute: e.target.valueAsNumber
+    })
   }
-
-  handleChangeAMPM = (e) => {
+  handleChangePM = (e) => {
+    this.props.onChange({
+      pm: e.target.checked
+    })
   }
 
   render() {
+    let time = getTimeFromMinutes(this.props.minute)
     return (
       <div>
-        <TimeStateManager />
-        {/* <input 
-          type="number" 
-          defaultValue={this.state.hour} 
-          onChange={this.handleChangeHour}
-        />
-        <input 
-          type="number"
-          defaultValue={this.state.minute}
-          onChange={this.handleChangeMinute}
-        />
-        <label>PM:
-          <input 
-            type="checkbox"
-            checked={this.state.pm}
-            onChange={this.handleChangeAMPM} 
-          />
-        </label> */}
+        <input type="number" value={time.hour} onChange={this.handleChangeHour}/>
+        <input type="number" value={time.minute} onChange={this.handleChangeMinute}/>
+        <input type="checkbox" checked={time.pm} onChange={this.handleChangePM}/>
       </div>
     )
   }

@@ -3,7 +3,8 @@
  * @params {Number} minutes - the time in minutes
  * @returns {Object} - The object in standard time format
  */
-export const getTimeFromMinutes = (minutes) => {
+export const getTimeFromMinutes = (rawMinutes) => {
+  let minutes = rawMinutes
   if(minutes < 0) return null
   let pm = minutes >= (12 * 60) ? true : false;
   if(pm){
@@ -11,13 +12,15 @@ export const getTimeFromMinutes = (minutes) => {
   }
   let hour = 0
 
-  while(minutes > 60) {
+  while(minutes >= 60) {
     hour += 1
     minutes -= 60
   } 
+
+  if(hour === 0) hour = 12
   return {
     hour,
-    minute: minutes,
+    minute: minutes.minute,
     pm
   }
 }

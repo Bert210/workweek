@@ -5,109 +5,30 @@ import {connect} from 'react-redux'
 import {updateTime} from '../actions/time.js'
 
 import TimeInput from '../Components/TimeInput'
-import {getMilitaryTimeFromMinutes} from '../TimeUtil'
+import {getTimeFromMinutes} from '../TimeUtil'
 
 class TimeView extends React.Component {
-  constructor(props){
-    super(props)
-     
-    let inTimeAMPM = this.props.inTime.hour >= 12 ? true : false;
-    let outTimeAMPM = this.props.outTime.hour >= 12 ? true : false; 
-
-
-    this.state = {
-      inTime:{
-        minute: this.props.inTime.minute,
-        pm: inTimeAMPM
-      },
-      outTime: {
-        minute: this.props.outTime.minute,
-        pm: outTimeAMPM
-      },
-      totalTime: {
-        minute: this.props.totalTime.minute
+  handleInChange = (e) => {
+    this.props.updateTime(
+      this.props.id,
+      {
+        ...getTimeFromMinutes(this.props.inTime),
+        ...e,
       }
-    }
-
+    )
   }
 
-  handleChange = (value, id) => {
-    //let {inTime, outTime} = this.state
-      /*
-    switch(id){
-      case("inTimeHour"):
-        let inTimeAMPM = value.target.valueAsNumber >= 12 ? true : false; 
-        inTime = {
-          ...this.state.inTime,
-          hour: value.target.valueAsNumber,
-          pm: inTimeAMPM
-        }
-        break;
-      case("inTimeMinute"):
-         inTime = {
-          ...this.state.inTime,
-          minute: value.target.valueAsNumber
-        }
-        break;
-      case("inTimeAMPM"):
-        inTime = {
-          ...this.state.inTime,
-          pm: value.target.value
-        }
-        console.log(value.target.checked)
-        break;
-      case("outTimeHour"):
-        let outTimeAMPM = value.target.valueAsNumber >= 12 ? true : false; 
-        outTime = {
-          ...outTime,
-          hour: value.target.valueAsNumber,
-          pm: outTimeAMPM
-        }
-
-        break;
-      case("outTimeMinute"):
-        outTime = {
-          ...outTime,
-          minute: value.target.valueAsNumber
-        }
-        break;
-      case("outTimeAMPM"):
-        outTime = {
-          ...outTime,
-          pm: value.target.checked
-        }
-        break;
-      default:
-        return;
-    }
-    let totalTime = {
-      hour: outTime.hour - inTime.hour,
-      minute: outTime.minute - inTime.minute
-    }
-    
-    this.setState({inTime, outTime, totalTime})
-    //this.props.updateTime(this.props.id)
-  */
+  handleOutChange = (e) => {
   }
 
   render() {
-    let total = getMilitaryTimeFromMinutes(this.state.totalTime.minute) 
+    // let total = getMilitaryTimeFromMinutes(this.state.totalTime.minute) 
     return(
+      <div key={this.props.id}>
+        <TimeInput id={this.props.id} {...this.props.inTime} onChange={this.handleInChange}/>
+        <TimeInput id={this.props.id} {...this.props.outTime} onChange={this.handleOutChange}/>
 
-      <div>
-        <TimeInput {...this.state.inTime} />
-        <TimeInput {...this.state.outTime} />
-        {/* <form>
-          <TimeInput {...this.state.inTime} />
-          <br/>
-          
-          <TimeInput {...this.state.outTime} />
-          <br/>
-
-          <span>Total: {total.hour}:{total.minute}</span>
-        </form> */}
-
-        <button onClick={
+        <button className="btn-delete" onClick={
           () => { this.props.removeTime(this.props.id) } 
           }>&times;</button> 
       </div>

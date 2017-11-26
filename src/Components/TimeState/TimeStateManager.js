@@ -10,7 +10,7 @@ class TimeStateManager extends React.Component {
 
   constructor(props){
     super(props)
-
+  
     this.state = {
       mode: NORMAL_STATE 
     }
