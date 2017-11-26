@@ -1,3 +1,5 @@
+/* Green Color: 1DA237 */
+
 a {
   text-decoration: none;
   color: blue;
@@ -5,6 +7,7 @@ a {
 
 .App {
 	text-align: center;
+	font-size: 20px;
 }
 
 .App-logo {
@@ -35,6 +38,7 @@ a {
 .day-container {
 	display: flex;
 	padding: 20px;
+	justify-content: space-between;
 }
 
 .day-container:hover {
@@ -43,10 +47,12 @@ a {
 
 .day-name {
 	margin-right: 10px;
+	width: 100px;
 }
 
 .day-active {
 	margin-left: 10px;
+	float: right;
 }
 
 .SideBar {
@@ -60,3 +66,6 @@ a {
 	vertical-align: top;
 }
 
+.tsn-item {
+	display: inline-block;
+}

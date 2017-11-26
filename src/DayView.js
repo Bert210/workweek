@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux'
 import {addTime, removeTime} from './actions/time'
 
 
-import TimeView from './components/TimeView'
+import TimeView from './Components/TimeView'
 
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)
@@ -14,7 +14,6 @@ const DayView = (props) => {
   let times = props.time.filter(time => {
     return time.dayRef === dayRef 
   })
-  console.log(times)
   return (<div className="MainPane">
     <div>
       {times.map(time => {
