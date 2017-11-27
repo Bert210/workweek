@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 export const UPDATE_TIME = "UPDATE_TIME"
 export const ADD_TIME = "ADD_TIME"
 export const REMOVE_TIME = "REMOVE_TIME"

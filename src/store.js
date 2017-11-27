@@ -12,6 +12,6 @@ export const storeCreator = (initState = {}, history) => {
 	const middleware = routerMiddleware(history)
 
 	return createStore(
-		reducer, initState, applyMiddleware(middleware)
+		reducer, initState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(middleware),
 	)
 }

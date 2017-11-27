@@ -5,29 +5,31 @@ import {connect} from 'react-redux'
 import {updateTime} from '../actions/time.js'
 
 import TimeInput from '../Components/TimeInput'
-import {getTimeFromMinutes} from '../TimeUtil'
+import {getTimeFromMinutes, getTimeDiff} from '../TimeUtil'
 
 class TimeView extends React.Component {
-  handleInChange = (e) => {
+  handleChange = (e) => {
+    // console.log(e)
     this.props.updateTime(
       this.props.id,
       {
-        ...getTimeFromMinutes(this.props.inTime),
+        // ...getTimeFromMinutes(this.props.inTime),
         ...e,
       }
     )
   }
 
-  handleOutChange = (e) => {
-  }
-
   render() {
-    // let total = getMilitaryTimeFromMinutes(this.state.totalTime.minute) 
+    let inTime = this.props.times.find(time => time.id === this.props.inTimeID)
+    let outTime = this.props.times.find(time => time.id === this.props.outTimeID)
+
+    let totalTime = getTimeDiff(inTime.minutes, outTime.minutes)
+
     return(
       <div key={this.props.id}>
-        <TimeInput id={this.props.id} {...this.props.inTime} onChange={this.handleInChange}/>
-        <TimeInput id={this.props.id} {...this.props.outTime} onChange={this.handleOutChange}/>
-
+        <TimeInput {...inTime} onChange={this.handleChange}/>
+        <TimeInput {...outTime} onChange={this.handleChange}/>
+        <div>{totalTime.hour}:{totalTime.minute}</div>
         <button className="btn-delete" onClick={
           () => { this.props.removeTime(this.props.id) } 
           }>&times;</button> 
@@ -35,9 +37,14 @@ class TimeView extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+    times: state.times
+})
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({updateTime}, dispatch)
 }
 
 
-export default connect(null, mapDispatchToProps)(TimeView)
+export default connect(mapStateToProps, mapDispatchToProps)(TimeView)

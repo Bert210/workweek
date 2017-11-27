@@ -5,11 +5,15 @@
  */
 export const getTimeFromMinutes = (rawMinutes) => {
   let minutes = rawMinutes
+
   if(minutes < 0) return null
+
   let pm = minutes >= (12 * 60) ? true : false;
+
   if(pm){
     minutes -= 12*60
   }
+
   let hour = 0
 
   while(minutes >= 60) {
@@ -18,9 +22,10 @@ export const getTimeFromMinutes = (rawMinutes) => {
   } 
 
   if(hour === 0) hour = 12
+
   return {
     hour,
-    minute: minutes.minute,
+    minute: minutes,
     pm
   }
 }
@@ -54,4 +59,15 @@ export const getMilitaryTimeFromMinutes = (minutes) => {
     hour,
     minute:minutes
   }
+}
+
+/**
+ * Caluates the the time different between two times
+ * @param {Number} timeA - first time
+ * @param {Number} timeB - second time
+ * @returns {Object} - An object of {hour, minute}
+ */
+export const getTimeDiff = (timeA, timeB) => {
+  let diff = timeB - timeA
+  return getMilitaryTimeFromMinutes(diff)
 }
