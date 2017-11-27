@@ -4,20 +4,15 @@ import { getMinutesFromTime } from '../TimeUtil';
 const initState = [
   {
     id: 0,
-    dayRef: 1,
-    inTime: {
-      minute: 13 * 60 + 33,
-    },
-    outTime: {
-      minute: 17 * 60 + 12
-    },
-    totalTime: {
-      minute: 3 * 60 + 49
-    }
+    minutes: 8*60 + 12
+  },
+  {
+    id: 1,
+    minutes: 12*60 + 30
   }
 ]
 
-let id = 0 
+let id = 2
 
 const timeReducer = (state = initState, action) => {
 	switch(action.type){
@@ -26,33 +21,30 @@ const timeReducer = (state = initState, action) => {
         ...state,
         { 
           id: id++,
-          dayRef: action.dayRef,
-          inTime: {
-            minute: 8 * 60
-          },
-          outTime: {
-            minute: 12 * 60 + 30
-          },
-          totalTime: {
-            minute: 4 * 60 + 30
-          }
+          minutes: 8*60
         }
       ]
     case(REMOVE_TIME):
-      console.log(action.id) 
       return state.filter(time => (time.id !== action.id))
     case(UPDATE_TIME):
       let newTime = getMinutesFromTime(action.time)
-      console.log
-      return state.map(time => { 
-        if(time.id === action.id){
-          return {
-            ...time,
-            ...newTime
-          }
+      let newState = state.filter(time => (time.id !== action.id))
+      return [
+        ...newState,
+        {
+          id: action.id,
+          minutes: newTime
         }
-        return time
-      })
+      ]
+      //  return state.map(time => { 
+      //   if(time.id === action.id){
+      //     return {
+      //       ...time,
+      //       minutes: newTime
+      //     }
+      //   }
+      //   return time
+      // })
     default:
       return state
   }

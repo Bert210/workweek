@@ -11,14 +11,14 @@ import TimeView from './Components/TimeView'
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)
 
-  let times = props.time.filter(time => {
-    return time.dayRef === dayRef 
+  let cards = props.punchCard.filter(card => {
+    return card.dayRef === dayRef 
   })
   return (<div className="MainPane">
     <div>
-      {times.map(time => {
+      {cards.map(card => {
         return (
-          <TimeView key={time.id} {...time} removeTime={props.removeTime}/> 
+          <TimeView key={card.id} {...card} removeTime={props.removeTime}/> 
         )
       })}
     </div>
@@ -28,7 +28,7 @@ const DayView = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  time: state.times,
+  punchCard: state.punchCard
 })
 
 const mapDispatchToProps = (dispatch) => {
