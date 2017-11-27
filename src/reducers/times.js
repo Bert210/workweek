@@ -25,19 +25,26 @@ const timeReducer = (state = initState, action) => {
         }
       ]
     case(REMOVE_TIME):
-      console.log(action.id) 
       return state.filter(time => (time.id !== action.id))
     case(UPDATE_TIME):
       let newTime = getMinutesFromTime(action.time)
-      return state.map(time => { 
-        if(time.id === action.id){
-          return {
-            ...time,
-            minutes: newTime
-          }
+      let newState = state.filter(time => (time.id !== action.id))
+      return [
+        ...newState,
+        {
+          id: action.id,
+          minutes: newTime
         }
-        return time
-      })
+      ]
+      //  return state.map(time => { 
+      //   if(time.id === action.id){
+      //     return {
+      //       ...time,
+      //       minutes: newTime
+      //     }
+      //   }
+      //   return time
+      // })
     default:
       return state
   }

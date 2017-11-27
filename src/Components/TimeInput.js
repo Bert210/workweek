@@ -6,34 +6,35 @@ class TimeInput extends React.Component {
   constructor(props){
     super(props)
 
-    this.currentTime = {
-      ...getTimeFromMinutes(this.props.minutes)
-    }
+    // this.state = {...getTimeFromMinutes(this.props.minutes)}
+  }
 
-    console.log(this.currentTime)
-
+  componetWillMount() {
   }
 
   handleChangeHour = (e) => {
-    this.props.onChange({
+    this.props.onChange(this.props.id,{
       ...this.currentTime,
       hour: e.target.valueAsNumber
     })
   }
   handleChangeMinute = (e) => {
-    this.props.onChange({
+    this.props.onChange(this.props.id,{
       ...this.currentTime,
       minute: e.target.valueAsNumber
     })
   }
   handleChangePM = (e) => {
-    this.props.onChange({
+    this.props.onChange(
+      this.props.id,
+      {
       ...this.currentTime,
       pm: e.target.checked
     })
   }
 
   render() {
+    this.currentTime = {...getTimeFromMinutes(this.props.minutes)}
     return (
       <div>
         <input type="number" value={this.currentTime.hour} onChange={this.handleChangeHour}/>

@@ -8,15 +8,8 @@ import TimeInput from '../Components/TimeInput'
 import {getTimeFromMinutes, getTimeDiff} from '../TimeUtil'
 
 class TimeView extends React.Component {
-  handleChange = (e) => {
-    // console.log(e)
-    this.props.updateTime(
-      this.props.id,
-      {
-        // ...getTimeFromMinutes(this.props.inTime),
-        ...e,
-      }
-    )
+  handleChange = (id, e) => {
+    this.props.updateTime(id, e)
   }
 
   render() {
