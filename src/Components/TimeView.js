@@ -16,12 +16,14 @@ class TimeView extends React.Component {
     let inTime = this.props.times.find(time => time.id === this.props.inTimeID)
     let outTime = this.props.times.find(time => time.id === this.props.outTimeID)
 
-    let totalTime = getTimeDiff(inTime.minutes, outTime.minutes)
-
+    let totalTime = {hour: 0, minute: 0}
+    if(inTime !== undefined && outTime !== undefined)
+      totalTime = getTimeDiff(inTime.minutes, outTime.minutes)
+      
     return(
       <div key={this.props.id}>
-        <TimeInput {...inTime} onChange={this.handleChange}/>
-        <TimeInput {...outTime} onChange={this.handleChange}/>
+        <TimeInput {...inTime} punchCardID={this.props.punchCardID} type={'in'} onChange={this.handleChange}/>
+        <TimeInput {...outTime} punchCardID={this.props.punchCardID} type={'out'} onChange={this.handleChange}/>
         <div>{totalTime.hour}:{totalTime.minute}</div>
         <button className="btn-delete" onClick={
           () => { this.props.removeTime(this.props.id) } 
