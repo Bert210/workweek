@@ -1,13 +1,25 @@
 import React from 'react'
 
 import { getTimeFromMinutes } from '../TimeUtil'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+
+import {addTime} from '../actions/time'
+import {linkTimeToPunchCard} from '../actions/punchCard'
 
 class TimeInput extends React.Component {
   constructor(props){
     super(props)
+    if(this.props.minutes === undefined){
+      console.log("minutes is undefined; create a new one")
+      //How do we get the id from a reducer function
+      this.props.addTime()
 
-    // this.state = {...getTimeFromMinutes(this.props.minutes)}
+      this.props.linkTimeToPunchCard()
+    }
   }
+
+
 
   componetWillMount() {
   }
@@ -45,4 +57,8 @@ class TimeInput extends React.Component {
   }
 }
 
-export default TimeInput
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({addTime, linkTimeToPunchCard}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(TimeInput)

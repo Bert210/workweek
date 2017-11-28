@@ -1,3 +1,5 @@
+import {ADD_PUNCHCARD, REMOVE_PUNCHCARD} from '../actions/punchCard'
+
 const initState = [
     {
         id: 0,
@@ -7,9 +9,21 @@ const initState = [
     }
 ]
 
+let id = 1
+
 const punchCardReducer = (state = initState, action) => {
     switch(action.type){
-        case("ADD_PUNCHCARD"):
+        case(ADD_PUNCHCARD):
+            return [
+                ...state,
+                {
+                    id: id++,
+                    dayRef: action.dayRef,
+                    inTimeID: null,
+                    outTimeID: null,
+                }
+            ]
+        case(REMOVE_PUNCHCARD):
             break;
         default:
             return state

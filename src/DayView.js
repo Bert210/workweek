@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import {addTime, removeTime} from './actions/time'
+import {addPunchCard} from './actions/punchCard'
+
 
 
 import TimeView from './Components/TimeView'
@@ -18,12 +20,12 @@ const DayView = (props) => {
     <div>
       {cards.map(card => {
         return (
-          <TimeView key={card.id} {...card} removeTime={props.removeTime}/> 
+          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removeTime}/> 
         )
       })}
     </div>
     
-    <button onClick={() => { props.addTime(dayRef) }}>Add Time</button>
+    <button onClick={() => { props.addPunchCard(dayRef) }}>Add Time</button>
   </div>)
 }
 
@@ -32,7 +34,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addTime, removeTime}, dispatch) 
+  return bindActionCreators({addPunchCard, removeTime}, dispatch) 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DayView)
