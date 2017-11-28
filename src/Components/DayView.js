@@ -3,12 +3,12 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
-import {addTime, removeTime} from './actions/time'
-import {addPunchCard} from './actions/punchCard'
+import {addTime, removeTime} from '../actions/time'
+import {addPunchCard} from '../actions/punchCard'
 
 
 
-import TimeView from './Components/TimeView'
+import TimeView from './TimeView'
 
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)

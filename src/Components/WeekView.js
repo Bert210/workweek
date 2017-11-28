@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
 
-import Day from '../Day/Day'
+import Day from '../Components/Day'
 
 /* May need to convert this to a presental component */
 
