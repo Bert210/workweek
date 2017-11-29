@@ -20,7 +20,7 @@ const timeReducer = (state = initState, action) => {
       return [
         ...state,
         { 
-          id: id++,
+          id: action.id,
           minutes: 8*60
         }
       ]

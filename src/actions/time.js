@@ -7,8 +7,8 @@ export const updateTime = (id, time) => {
   return {type: UPDATE_TIME, id, time}
 }
 
-export const addTime = () => {
-  return {type: ADD_TIME}
+export const addTime = (id) => {
+  return {type: ADD_TIME, id}
 }
 
 export const removeTime = (id) => {

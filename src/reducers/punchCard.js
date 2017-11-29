@@ -19,8 +19,8 @@ const punchCardReducer = (state = initState, action) => {
                 {
                     id: id++,
                     dayRef: action.dayRef,
-                    inTimeID: null,
-                    outTimeID: null,
+                    inTimeID: action.inTimeID,
+                    outTimeID: action.outTimeID,
                 }
             ]
         case(REMOVE_PUNCHCARD):

@@ -6,12 +6,24 @@ import {bindActionCreators} from 'redux'
 import {addTime, removeTime} from '../actions/time'
 import {addPunchCard} from '../actions/punchCard'
 
+import cuid from 'cuid'
+
 
 
 import TimeView from './TimeView'
 
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)
+  const createPunchCard = () => {
+    let inTimeID = cuid()
+    let outTimeID = cuid()
+  
+    props.addTime(inTimeID)
+    props.addTime(outTimeID)
+
+    props.addPunchCard(dayRef, inTimeID, outTimeID)
+    // dayRef
+  }
 
   let cards = props.punchCard.filter(card => {
     return card.dayRef === dayRef 
@@ -25,16 +37,18 @@ const DayView = (props) => {
       })}
     </div>
     
-    <button onClick={() => { props.addPunchCard(dayRef) }}>Add Time</button>
+    <button onClick={createPunchCard}>Add Time</button>
   </div>)
 }
+
+
 
 const mapStateToProps = (state) => ({
   punchCard: state.punchCard
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addPunchCard, removeTime}, dispatch) 
+  return bindActionCreators({addPunchCard, removeTime, addTime}, dispatch) 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DayView)
