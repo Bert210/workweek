@@ -1,18 +1,7 @@
 import {UPDATE_TIME, ADD_TIME, REMOVE_TIME} from '../actions/time.js'
 import { getMinutesFromTime } from '../TimeUtil';
 
-const initState = [
-  {
-    id: 0,
-    minutes: 8*60 + 12
-  },
-  {
-    id: 1,
-    minutes: 12*60 + 30
-  }
-]
-
-let id = 2
+const initState = []
 
 const timeReducer = (state = initState, action) => {
 	switch(action.type){
@@ -36,15 +25,6 @@ const timeReducer = (state = initState, action) => {
           minutes: newTime
         }
       ]
-      //  return state.map(time => { 
-      //   if(time.id === action.id){
-      //     return {
-      //       ...time,
-      //       minutes: newTime
-      //     }
-      //   }
-      //   return time
-      // })
     default:
       return state
   }
