@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 
 import {connect} from 'react-redux'
 
+import {totalSelector} from '../selector/totalTime'
+
 import ToggleButton from '../Components/ToggleButton'
 import {getMilitaryTimeFromMinutes} from '../TimeUtil'    
 
@@ -18,12 +20,14 @@ class Day extends Component {
       }else{ return 0; }
     }, 0)
     
+    
     this.setState({
       ...getMilitaryTimeFromMinutes(totalMinutes)
     })
   }
-
+  
   render() {
+    console.log(this.props.totalTime)
     return (
       <div className="day-container">
         <div className="day-name">{this.props.name}</div>
@@ -36,7 +40,8 @@ class Day extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    times: state.times
+    times: state.times,
+    totalTime: totalSelector(state)
   }
 }
 
