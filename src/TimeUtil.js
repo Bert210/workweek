@@ -53,7 +53,7 @@ export const getMilitaryTimeFromMinutes = (minutes) => {
 
   let hour = 0
 
-  while(minutes > 60){
+  while(minutes >= 60){
     hour += 1
     minutes -= 60
   }
