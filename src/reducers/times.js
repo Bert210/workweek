@@ -16,7 +16,6 @@ const timeReducer = (state = initState, action) => {
     case(REMOVE_TIME):
       return state.filter(time => (time.id !== action.id))
     case(UPDATE_TIME):
-    console.log("id:", action.id, " timeInMinutes:", action.timeInMinutes)
     let index = state.findIndex(time => (time.id === action.id))
       return [
         ...state.slice(0, index)

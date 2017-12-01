@@ -38,6 +38,9 @@ export const getTimeFromMinutes = (rawMinutes) => {
 export const getMinutesFromTime = (time) => {
   let {hour, minute, pm} = time
 
+  if(hour === 12){
+    return minute + (pm ? 720 : 0)
+  }
   return (hour * 60) + minute + (pm ? 12*60 : 0)
 }
 
@@ -69,5 +72,7 @@ export const getMilitaryTimeFromMinutes = (minutes) => {
  */
 export const getTimeDiff = (timeA, timeB) => {
   let diff = timeB - timeA
+
+  if (diff < 0) return null;
   return getMilitaryTimeFromMinutes(diff)
 }
