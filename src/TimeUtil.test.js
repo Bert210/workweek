@@ -90,5 +90,5 @@ test('getTimeDiff', () => {
   expect(getTimeDiff(time1, time2)).toEqual({hour:4, minute:30})
 
   
-  expect(getTimeDiff(time2, time1)).toBeNull()
+  expect(getTimeDiff(time2, time1)).toEqual({hour: 0, minute: 0})
 })

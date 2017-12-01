@@ -73,6 +73,6 @@ export const getMilitaryTimeFromMinutes = (minutes) => {
 export const getTimeDiff = (timeA, timeB) => {
   let diff = timeB - timeA
 
-  if (diff < 0) return null;
+  if (diff < 0) return {hour: 0, minute: 0};
   return getMilitaryTimeFromMinutes(diff)
 }
