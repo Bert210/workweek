@@ -1,10 +1,12 @@
+import { getMinutesFromTime } from '../TimeUtil';
+
 export const UPDATE_TIME = "UPDATE_TIME"
 export const ADD_TIME = "ADD_TIME"
 export const REMOVE_TIME = "REMOVE_TIME"
 
-
 export const updateTime = (id, time) => {
-  return {type: UPDATE_TIME, id, time}
+  let timeInMinutes = getMinutesFromTime(time)
+  return {type: UPDATE_TIME, id, timeInMinutes}
 }
 
 export const addTime = (id) => {
