@@ -2,6 +2,14 @@ import { totalSelector } from './totalTime'
 
 test('base is working', () => {
     let state = {
+        router: {
+            location: {
+              pathname: '/day/1',
+              search: '',
+              hash: '',
+              key: 'snvvz3'
+            }
+        },
         punchCard: [
             {
                 id: 0,
