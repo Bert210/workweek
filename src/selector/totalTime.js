@@ -13,25 +13,17 @@ export const totalSelector = createSelector(
         let dayRef = parseInt(router.location.pathname.split('/').slice(-1)[0])
 
         let cards = punchCard.filter(card => card.dayRef === dayRef)
-        console.log(cards)
+
         let totalTimesArray = cards.map( card => {
             let inTime = time.find(t => t.id === card.inTimeID)
             let outTime = time.find(t => t.id === card.outTimeID)
 
-            console.log(`${outTime.minutes} - ${inTime.minutes} = ${outTime.minutes - inTime.minutes}`)
             return outTime.minutes - inTime.minutes
         })
 
-
-
-
-        console.log(totalTimesArray)
-
         let totalMinutes = totalTimesArray.reduce((total, current) => {
             return total + current
-        })
-
-        console.log(totalMinutes)
+        }, 0)
 
         return getMilitaryTimeFromMinutes(totalMinutes)
     }
