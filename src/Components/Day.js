@@ -19,19 +19,17 @@ class Day extends Component {
         return total + current.totalTime.minute
       }else{ return 0; }
     }, 0)
-    
-    
+
     this.setState({
       ...getMilitaryTimeFromMinutes(totalMinutes)
     })
   }
   
   render() {
-    console.log(this.props.totalTime)
     return (
       <div className="day-container">
         <div className="day-name">{this.props.name}</div>
-        <div className="day-total">{this.state.hour}:{this.state.minute}</div>
+        <div className="day-total">{this.props.totalTime.hour}:{this.props.totalTime.minute}</div>
         <div className="day-active"><ToggleButton /></div>
       </div>
     )
