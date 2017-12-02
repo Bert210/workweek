@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import {getTimeDiff} from '../TimeUtil'
+import {getTimeDiff, getMilitaryTimeFromMinutes} from '../TimeUtil'
 
 const punchCardSelector = state => state.punchCard
 const timeSelector = state => state.times
@@ -15,18 +15,24 @@ export const totalSelector = createSelector(
         let cards = punchCard.filter(card => card.dayRef === dayRef)
         console.log(cards)
         let totalTimesArray = cards.map( card => {
-            let inTime = time.find(card.inTimeID)
-            let outTime = time.find(card.outTimeID)
-            
-            return outTime - inTime
+            let inTime = time.find(t => t.id === card.inTimeID)
+            let outTime = time.find(t => t.id === card.outTimeID)
+
+            console.log(`${outTime.minutes} - ${inTime.minutes} = ${outTime.minutes - inTime.minutes}`)
+            return outTime.minutes - inTime.minutes
         })
+
 
 
 
         console.log(totalTimesArray)
 
-        return totalTimesArray.reduce((total, current) => {
-            return {hour: total.hour + current.hour, minute: total.minute + current.mintue} 
-        }, 0)
+        let totalMinutes = totalTimesArray.reduce((total, current) => {
+            return total + current
+        })
+
+        console.log(totalMinutes)
+
+        return getMilitaryTimeFromMinutes(totalMinutes)
     }
 )
