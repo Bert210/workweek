@@ -11,12 +11,6 @@ export const totalSelector = createSelector(
     punchCardSelector,
     timeSelector,
     (days, punchCard, time) => {
-        /*
-            We want to return an array with all the days totals
-            
-                
-        */
-
         let punchCardsByDay = days.map(
             (day) => {
                 return punchCard.filter( card => card.dayRef === day.id)
@@ -34,35 +28,13 @@ export const totalSelector = createSelector(
                     return outTime.minutes - inTime.minutes
                 })
 
-                // console.log("timeArrayDays", timeArrayDays)
-
+                
+                // Reduce array and get convert it to total time
                 return getMilitaryTimeFromMinutes(timeArrayDays.reduce( (total, curr) => {return total + curr}, 0))
-
-                // return timeArrayDays
             }
         )
 
-        // console.log(minutesByDay)
-
-
 
         return minutesByDay
-        
-        // let dayRef = parseInt(router.location.pathname.split('/').slice(-1)[0])
-
-        // let cards = punchCard.filter(card => card.dayRef === dayRef)
-
-        // let totalTimesArray =  punchCard.map( card => {
-        //     let inTime = time.find(t => t.id === card.inTimeID)
-        //     let outTime = time.find(t => t.id === card.outTimeID)
-
-        //     return outTime.minutes - inTime.minutes
-        // })
-
-        // let totalMinutes = totalTimesArray.reduce((total, current) => {
-        //     return total + current
-        // }, 0)
-
-        // return getMilitaryTimeFromMinutes(totalMinutes)
     }
 )

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
 import {addTime, removeTime} from '../actions/time'
-import {addPunchCard} from '../actions/punchCard'
+import {addPunchCard, removePunchCard} from '../actions/punchCard'
 
 import cuid from 'cuid'
 
@@ -32,7 +32,7 @@ const DayView = (props) => {
     <div>
       {cards.map(card => {
         return (
-          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removeTime}/> 
+          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removePunchCard}/> 
         )
       })}
     </div>
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addPunchCard, removeTime, addTime}, dispatch) 
+  return bindActionCreators({addPunchCard, removePunchCard, addTime}, dispatch) 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DayView)

@@ -29,7 +29,7 @@ class Day extends Component {
     return (
       <div className="day-container">
         <div className="day-name">{this.props.name}</div>
-        <div className="day-total">{this.props.totalTime.hour}:{this.props.totalTime.minute}</div>
+        <div className="day-total">{this.props.totalTime[this.props.id].hour}:{this.props.totalTime[this.props.id].minute}</div>
         <div className="day-active"><ToggleButton /></div>
       </div>
     )

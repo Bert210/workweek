@@ -24,7 +24,8 @@ class WeekView extends Component {
 const mapStateToProps = (state) => {
   return {
     days: state.days,
-    times: state.times 
+    times: state.times,
+    totalTimes: state.totalTimes
   }
 }
 
