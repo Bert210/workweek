@@ -23,8 +23,6 @@ export const totalSelector = createSelector(
                     let inTime = time.find(t => t.id === card.inTimeID)
                     let outTime = time.find(t => t.id === card.outTimeID)
                     
-                    console.log(`outTime.minutes - inTime.minutes = ${outTime.minutes - inTime.minutes}`)
-
                     return outTime.minutes - inTime.minutes
                 })
 
