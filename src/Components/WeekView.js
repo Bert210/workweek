@@ -12,7 +12,6 @@ class WeekView extends Component {
     let days = this.props.days.map(day => {
       return (<Link key={day.id} to={`/day/${day.id}`} ><Day {...day} /></Link>)
     })
-    //let days = this.createDays()
     return ( 
       <div>
         {days} 
@@ -24,8 +23,7 @@ class WeekView extends Component {
 const mapStateToProps = (state) => {
   return {
     days: state.days,
-    times: state.times,
-    totalTimes: state.totalTimes
+    times: state.times
   }
 }
 
