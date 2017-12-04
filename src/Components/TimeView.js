@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {updateTime} from '../actions/time.js'
 
 import TimeInput from '../Components/TimeInput'
-import {getTimeFromMinutes, getTimeDiff} from '../TimeUtil'
+import {getTimeDiff} from '../TimeUtil'
 
 class TimeView extends React.Component {
   handleChange = (id, e) => {

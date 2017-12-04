@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import {getTimeDiff, getMilitaryTimeFromMinutes} from '../TimeUtil'
+import {getMilitaryTimeFromMinutes} from '../TimeUtil'
 
 const punchCardSelector = state => state.punchCard
 const timeSelector = state => state.times
