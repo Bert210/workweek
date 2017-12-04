@@ -70,7 +70,7 @@ test('one punch card same dayRef ', () => {
     }
     expect(totalSelector(state)).toEqual([
         {hour: 0, minute: 0},
-        {hour: 4, minute: 0},
+        {hour: 4, minute: 30},
         {hour: 0, minute: 0},
         {hour: 0, minute: 0},
         {hour: 0, minute: 0},

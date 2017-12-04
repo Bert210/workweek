@@ -25,13 +25,28 @@ export const totalSelector = createSelector(
 
         let minutesByDay = punchCardsByDay.map(
             (day) => {
-                console.log(day)
-                day.reduce( (total, current) => total.minutes + current.minutes, 0)
+                let timeArrayDays = day.map(card => {
+                    let inTime = time.find(t => t.id === card.inTimeID)
+                    let outTime = time.find(t => t.id === card.outTimeID)
+                    
+                    console.log(`outTime.minutes - inTime.minutes = ${outTime.minutes - inTime.minutes}`)
+
+                    return outTime.minutes - inTime.minutes
+                })
+
+                // console.log("timeArrayDays", timeArrayDays)
+
+                return getMilitaryTimeFromMinutes(timeArrayDays.reduce( (total, curr) => {return total + curr}, 0))
+
+                // return timeArrayDays
             }
         )
 
-        console.log(minutesByDay)
+        // console.log(minutesByDay)
 
+
+
+        return minutesByDay
         
         // let dayRef = parseInt(router.location.pathname.split('/').slice(-1)[0])
 
