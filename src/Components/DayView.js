@@ -3,7 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
-import {addTime, removeTime} from '../actions/time'
+import {addTime} from '../actions/time'
 import {addPunchCard, removePunchCard} from '../actions/punchCard'
 
 import cuid from 'cuid'
