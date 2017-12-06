@@ -69,3 +69,12 @@ a {
 .tsn-item {
 	display: inline-block;
 }
+
+.btn-delete {
+	font-size: 24px;
+	padding-left: 10px;
+}
+
+.btn-delete:hover {
+	color: red;
+}
