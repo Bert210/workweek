@@ -1,4 +1,4 @@
-import { totalSelector } from './totalTime'
+import { dayTotalSelector } from './dayTotalSelector'
 
 let days = [
     {
@@ -68,7 +68,7 @@ test('one punch card same dayRef ', () => {
             }
         ]
     }
-    expect(totalSelector(state)).toEqual([
+    expect(dayTotalSelector(state)).toEqual([
         {hour: 0, minute: 0},
         {hour: 4, minute: 30},
         {hour: 0, minute: 0},
@@ -110,7 +110,7 @@ test('one punch card with different dayRef', () => {
         ]
     }
 
-    expect(totalSelector(state)).toEqual([
+    expect(dayTotalSelector(state)).toEqual([
         {hour: 4, minute: 30}, // Sunday
         {hour: 0, minute: 0}, // Monday
         {hour: 0, minute: 0}, // Tuesday
@@ -168,8 +168,8 @@ test('two punch cards with same and correct dayRef', () => {
     }
 
     //Think this is right
-    // expect(totalSelector(state)).toEqual({hour: 7, minute: 58})
-    expect(totalSelector(state)).toEqual([
+    // expect(dayTotalSelector(state)).toEqual({hour: 7, minute: 58})
+    expect(dayTotalSelector(state)).toEqual([
         {hour: 0, minute: 0}, // Sunday
         {hour: 7, minute: 58}, // Monday
         {hour: 0, minute: 0}, // Tuesday
@@ -226,8 +226,8 @@ test('two punch cards with different dayRef', () => {
         ]
     }
 
-    // expect(totalSelector(state)).toEqual({hour: 3, minute: 28})
-    expect(totalSelector(state)).toEqual([
+    // expect(dayTotalSelector(state)).toEqual({hour: 3, minute: 28})
+    expect(dayTotalSelector(state)).toEqual([
         {hour: 4, minute: 30}, // Sunday
         {hour: 3, minute: 28}, // Monday
         {hour: 0, minute: 0}, // Tuesday
@@ -298,8 +298,8 @@ test('three punch cards with different dayRef', () => {
         ]
     }
 
-    // expect(totalSelector(state)).toEqual({hour: 7, minute: 58})
-    expect(totalSelector(state)).toEqual([
+    // expect(dayTotalSelector(state)).toEqual({hour: 7, minute: 58})
+    expect(dayTotalSelector(state)).toEqual([
         {hour: 5, minute: 28}, // Sunday
         {hour: 7, minute: 58}, // Monday
         {hour: 0, minute: 0}, // Tuesday
