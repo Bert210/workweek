@@ -2,7 +2,7 @@ import React from 'react'
 
 import {connect} from 'react-redux'
 
-import {totalSelector} from '../selector/totalTime'
+import {dayTotalSelector} from '../selector/dayTotalSelector'
 import {pad} from '../FormatUtil'
 
 const DayTotalTime = ({dayID, totalTime}) => {
@@ -15,7 +15,7 @@ const DayTotalTime = ({dayID, totalTime}) => {
 
 const mapStateToProps = (state) => {
     return {
-        totalTime: totalSelector(state)
+        totalTime: dayTotalSelector(state)
     }
 }
 

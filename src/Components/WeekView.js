@@ -14,7 +14,8 @@ class WeekView extends Component {
     })
     return ( 
       <div>
-        {days} 
+        {days}
+        <div>Week Total:</div>
       </div>
     )
   }

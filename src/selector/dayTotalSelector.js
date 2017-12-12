@@ -6,7 +6,7 @@ const punchCardSelector = state => state.punchCard
 const timeSelector = state => state.times
 const daySelector = state => state.days
 
-export const totalSelector = createSelector(
+export const dayTotalSelector = createSelector(
     daySelector,
     punchCardSelector,
     timeSelector,
