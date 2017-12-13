@@ -1,14 +1,18 @@
-import { dayTotalSelector } from "./totalSelector";
+import { totalSelector } from "./totalSelector";
 
 
-test("", () => {
-    expect(dayTotalSelector([{hour: 0, minute: 0},
-        {hour: 4, minute: 30},
-        {hour: 0, minute: 0},
-        {hour: 0, minute: 0},
-        {hour: 0, minute: 0},
-        {hour: 0, minute: 0},
-        {hour: 0, minute: 0}])).toEqual(
-            {hour:4, minute:30}
-        )
+test("Basic one format", () => {
+    expect(totalSelector(
+        [
+            {hour: 0, minute: 0},
+            {hour: 4, minute: 30},
+            {hour: 0, minute: 0},
+            {hour: 0, minute: 0},
+            {hour: 0, minute: 0},
+            {hour: 0, minute: 0},
+            {hour: 0, minute: 0}
+        ])
+    ).toEqual(
+        {hour:4, minute:30}
+    )
 })
