@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 import Day from '../Components/Day'
+import WeekTotalHours from './WeekTotalHours'
 
 /* May need to convert this to a presental component */
 
@@ -15,7 +16,7 @@ class WeekView extends Component {
     return ( 
       <div>
         {days}
-        <div>Week Total:</div>
+        <div>Week Total: <WeekTotalHours/></div>
       </div>
     )
   }

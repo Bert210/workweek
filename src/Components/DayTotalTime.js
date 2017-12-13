@@ -6,6 +6,7 @@ import {dayTotalSelector} from '../selector/dayTotalSelector'
 import {pad} from '../FormatUtil'
 
 const DayTotalTime = ({dayID, totalTime}) => {
+    // console.l
     let {hour, minute} = totalTime[dayID]
     
     return (
