@@ -30,5 +30,5 @@
     "jest": "^21.2.1",
     "react-test-renderer": "^16.2.0"
   },
-  "homepage": ".",
+  "homepage": "."
 }
