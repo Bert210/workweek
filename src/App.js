@@ -14,7 +14,7 @@ import WelcomeView from './Components/WelcomeView'
 
 import './App.css'
 
-const history = createHistory()
+const history = createHistory({basenname:'workweek'})
 
 const store = storeCreator({}, history)
 
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-          <ConnectedRouter history={history} basename={'workweek'}>
+          <ConnectedRouter history={history}>
            <div className="App">
             <div className="SideBar">
               <WeekView />
