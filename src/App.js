@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-          <ConnectedRouter history={history}>
+          <ConnectedRouter history={history} basename={'workweek'}>
            <div className="App">
             <div className="SideBar">
               <WeekView />
