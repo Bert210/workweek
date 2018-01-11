@@ -2,7 +2,7 @@ import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import TimeInput from '../Components/TimeInput'
+import TimeInput from './TimeInput'
 import FontAwesome from 'react-fontawesome'
 
 import {updateTime} from '../actions/time.js'
@@ -20,7 +20,7 @@ class TimeView extends React.Component {
     let totalTime = {hour: 0, minute: 0}
     if(inTime !== undefined && outTime !== undefined)
       totalTime = getTimeDiff(inTime.minutes, outTime.minutes)
-      
+
     return(
       <div key={this.props.id} style={{display:"flex", justifyContent: "center"}}>
         <div>
@@ -29,8 +29,8 @@ class TimeView extends React.Component {
         <div>{totalTime.hour}:{totalTime.minute}</div>
         </div>
         <div style={{textAlign: "left", alignSelf: "center"}} onClick={
-          () => { this.props.removeTime(this.props.id) } 
-          }><FontAwesome className='btn-delete' name='trash' /></div> 
+          () => { this.props.removeTime(this.props.id) }
+          }><FontAwesome className='btn-delete' name='trash' /></div>
       </div>
     )
   }

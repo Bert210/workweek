@@ -8,8 +8,6 @@ import {addPunchCard, removePunchCard} from '../actions/punchCard'
 
 import cuid from 'cuid'
 
-
-
 import TimeView from './TimeView'
 
 const DayView = (props) => {
@@ -17,7 +15,7 @@ const DayView = (props) => {
   const createPunchCard = () => {
     let inTimeID = cuid()
     let outTimeID = cuid()
-  
+
     props.addTime(inTimeID)
     props.addTime(outTimeID)
 
@@ -26,17 +24,17 @@ const DayView = (props) => {
   }
 
   let cards = props.punchCard.filter(card => {
-    return card.dayRef === dayRef 
+    return card.dayRef === dayRef
   })
   return (<div className="MainPane">
     <div>
       {cards.map(card => {
         return (
-          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removePunchCard}/> 
+          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removePunchCard}/>
         )
       })}
     </div>
-    
+
     <button onClick={createPunchCard}>Add Time</button>
   </div>)
 }
@@ -48,7 +46,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({addPunchCard, removePunchCard, addTime}, dispatch) 
+  return bindActionCreators({addPunchCard, removePunchCard, addTime}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DayView)

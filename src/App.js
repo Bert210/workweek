@@ -9,9 +9,9 @@ import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 
 import { storeCreator } from './store'
-import WeekView from './Components/WeekView'
-import DayView from './Components/DayView'
-import WelcomeView from './Components/WelcomeView'
+import WeekView from './components/WeekView'
+import DayView from './components/DayView'
+import WelcomeView from './components/WelcomeView'
 
 import './App.css'
 

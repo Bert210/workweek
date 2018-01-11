@@ -2,13 +2,14 @@ import React, {Component} from 'react'
 
 import {connect} from 'react-redux'
 
-import DayTotalTime from './DayTotalTime'
-import {getMilitaryTimeFromMinutes} from '../TimeUtil'
+import Day from '../../components/Day';
 
-class Day extends Component {
+// import DayTotalTime from '../DayTotalTime'
+import {getMilitaryTimeFromMinutes} from '../../TimeUtil'
+
+class DayContainer extends Component {
   constructor(props){
     super(props)
-
     this.state = {}
   }
   componentDidMount() {
@@ -22,21 +23,19 @@ class Day extends Component {
       ...getMilitaryTimeFromMinutes(totalMinutes)
     })
   }
-  
+
   render() {
     return (
-      <div className="day-container">
-        <div className="day-name">{this.props.name}</div>
-        <div className="day-total"><DayTotalTime dayID={this.props.id}/></div>
-      </div>
+      <Day {...this.props} />
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    times: state.times
+    times: state.times,
+    // isActive:
   }
 }
 
-export default connect(mapStateToProps, null)(Day)
+export default connect(mapStateToProps, null)(DayContainer)
