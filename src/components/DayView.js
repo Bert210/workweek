@@ -8,7 +8,7 @@ import {addPunchCard, removePunchCard} from '../actions/punchCard'
 
 import cuid from 'cuid'
 
-import TimeView from './TimeView'
+import TimeViewContainer from '../containers/TimeViewContainer'
 
 const DayView = (props) => {
   let dayRef = parseInt(props.match.params.id, 10)
@@ -30,7 +30,7 @@ const DayView = (props) => {
     <div>
       {cards.map(card => {
         return (
-          <TimeView key={card.id} punchCardID={card.id} {...card} removeTime={props.removePunchCard}/>
+          <TimeViewContainer key={card.id} punchCardID={card.id} {...card} removeTime={props.removePunchCard}/>
         )
       })}
     </div>
