@@ -13,7 +13,7 @@ class TimeViewContainer extends React.Component {
 
   render() {
     return(
-      <TimeView {...this.props} />
+      <TimeView {...this.props} handleChange={this.handleChange} />
     )
   }
 }

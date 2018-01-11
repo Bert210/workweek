@@ -1,12 +1,11 @@
 import React from 'react'
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import {dayTotalSelector} from '../../selector/dayTotalSelector'
-import {pad} from '../../FormatUtil'
+import { dayTotalSelector } from '../../selector/dayTotalSelector'
+import { pad } from '../../FormatUtil'
 
-const DayTotalTime = ({dayID, totalTime}) => {
-    // console.l
+const DayTotalTime = ({ dayID, totalTime }) => {
     let {hour, minute} = totalTime[dayID]
 
     return (

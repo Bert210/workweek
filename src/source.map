@@ -1,0 +1,12 @@
+App.js
+  store
+  WeekView
+    DayContainer
+      Day
+        DayTotalTime
+      TimeUtil
+    WeekTotalHours
+  DayView
+    TimeViewContainer
+      TimeView
+  WelcomeView

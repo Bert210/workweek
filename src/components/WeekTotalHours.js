@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { dayTotalSelector } from '../selector/dayTotalSelector';
 
-const WeekTotalHours = ({dayTimes}) => {
+const WeekTotalHours = ({ dayTimes }) => {
     let reduceTime = dayTimes.reduce(
         (total, curr) => {
             total.hour += curr.hour;
@@ -11,7 +11,7 @@ const WeekTotalHours = ({dayTimes}) => {
             return total;
         }
     , {hour:0, minute:0});
-    
+
     return(<span>{reduceTime.hour}:{reduceTime.minute}</span>);
 }
 
