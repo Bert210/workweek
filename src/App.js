@@ -24,14 +24,14 @@ class App extends Component {
     return (
       <Provider store={store}>
           <ConnectedRouter history={history}>
-           <div className="App">
-            <div className="SideBar">
-              <WeekView />
-            </div>
-            <Switch>
-              <Route exact path="/" component={WelcomeView}/>
-              <Route path="/day/:id" component={DayView} />
-            </Switch>
+            <div className="App">
+              <div className="SideBar">
+                <WeekView />
+              </div>
+              <Switch>
+                <Route exact path="/" component={WelcomeView}/>
+                <Route path="/day/:id" component={DayView} />
+              </Switch>
 					</div>
         </ConnectedRouter>
       </Provider>

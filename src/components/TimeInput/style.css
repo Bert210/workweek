@@ -1,9 +1,21 @@
 .inputHour {
   border: 0px;
   border-bottom: 1px solid black;
+  font-size: 24px;
+  width: 64px;
 }
 
 .inputHour:focus {
   color: blue;
-  
+}
+
+.inputMinute {
+  border: 0px;
+  border-bottom: 1px solid black;
+  font-size: 24px;
+  width: 64px;
+}
+
+.inputMinute:focus {
+  color: blue;
 }
