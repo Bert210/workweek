@@ -12,6 +12,7 @@ import { storeCreator } from './store'
 import WeekView from './components/WeekView'
 import DayView from './components/DayView'
 import WelcomeView from './components/WelcomeView'
+import TitleBarContainer from './containers/TitleBarContainer';
 
 import './App.css'
 
@@ -25,13 +26,16 @@ class App extends Component {
       <Provider store={store}>
           <ConnectedRouter history={history}>
             <div className="App">
-              <div className="SideBar">
-                <WeekView />
-              </div>
-              <Switch>
-                <Route exact path="/" component={WelcomeView}/>
-                <Route path="/day/:id" component={DayView} />
-              </Switch>
+              <TitleBarContainer />
+              <div className="appContainer">
+                <div className="SideBar">
+                  <WeekView />
+                </div>
+                <Switch>
+                  <Route exact path="/" component={WelcomeView}/>
+                  <Route path="/day/:id" component={DayView} />
+                </Switch>
+            </div>
 					</div>
         </ConnectedRouter>
       </Provider>
