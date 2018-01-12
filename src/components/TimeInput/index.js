@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { getTimeFromMinutes } from '../TimeUtil'
+import { getTimeFromMinutes } from '../../TimeUtil'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
+import {addTime} from '../../actions/time'
+import './style.css';
 
-import {addTime} from '../actions/time'
 
 class TimeInput extends React.Component {
   constructor(props){
     super(props)
     if(this.props.minutes === undefined){
       console.log("minutes is undefined; create a new one")
-
     }
   }
 
@@ -45,7 +45,7 @@ class TimeInput extends React.Component {
     this.currentTime = {...getTimeFromMinutes(this.props.minutes)}
     return (
       <div>
-        <input type="number" value={this.currentTime.hour} onChange={this.handleChangeHour}/>
+        <input className="inputHour" type="number" value={this.currentTime.hour} onChange={this.handleChangeHour}/>
         <input type="number" value={this.currentTime.minute} onChange={this.handleChangeMinute}/>
         <input type="checkbox" checked={this.currentTime.pm} onChange={this.handleChangePM}/>
       </div>

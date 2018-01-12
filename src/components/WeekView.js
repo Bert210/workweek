@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import Day from '../Components/Day'
+import DayContainer from '../containers/DayContainer'
 import WeekTotalHours from './WeekTotalHours'
 
 /* May need to convert this to a presental component */
@@ -11,9 +11,9 @@ import WeekTotalHours from './WeekTotalHours'
 class WeekView extends Component {
   render() {
     let days = this.props.days.map(day => {
-      return (<Link key={day.id} to={`/day/${day.id}`} ><Day {...day} /></Link>)
+      return (<Link key={day.id} to={`/day/${day.id}`} ><DayContainer {...day} /></Link>)
     })
-    return ( 
+    return (
       <div>
         {days}
         <div>Week Total: <WeekTotalHours/></div>
