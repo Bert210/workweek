@@ -3,7 +3,7 @@ import React from 'react'
 import TimeInput from '../TimeInput'
 import FontAwesome from 'react-fontawesome'
 
-import {getTimeDiff} from '../../TimeUtil'
+import { getTimeDiff } from '../../TimeUtil'
 
 const TimeView = ({
   id,

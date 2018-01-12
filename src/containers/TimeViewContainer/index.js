@@ -1,5 +1,4 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 import TimeView from '../../components/TimeView';
@@ -7,13 +6,9 @@ import TimeView from '../../components/TimeView';
 import {updateTime} from '../../actions/time.js'
 
 class TimeViewContainer extends React.Component {
-  handleChange = (id, e) => {
-    this.props.updateTime(id, e)
-  }
-
   render() {
     return(
-      <TimeView {...this.props} handleChange={this.handleChange} />
+      <TimeView {...this.props} handleChange={this.props.updateTime} />
     )
   }
 }
@@ -23,7 +18,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({updateTime}, dispatch)
+  return {
+    updateTime: (id, event) => dispatch(updateTime(id, event)),
+  }
 }
 
 
