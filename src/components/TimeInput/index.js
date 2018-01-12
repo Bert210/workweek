@@ -45,9 +45,25 @@ class TimeInput extends React.Component {
     this.currentTime = {...getTimeFromMinutes(this.props.minutes)}
     return (
       <div>
-        <input className="inputHour" type="number" value={this.currentTime.hour} onChange={this.handleChangeHour}/>
-        <input type="number" value={this.currentTime.minute} onChange={this.handleChangeMinute}/>
-        <input type="checkbox" checked={this.currentTime.pm} onChange={this.handleChangePM}/>
+        <input
+          className="inputHour"
+          type="number"
+          value={this.currentTime.hour}
+          onChange={this.handleChangeHour}
+        />
+        <input
+          className="inputMinute"
+          type="number"
+          value={this.currentTime.minute}
+          onChange={this.handleChangeMinute}
+        />
+        <input
+          className="inputAMPM"
+          id="AMPM"
+          type="checkbox"
+          checked={this.currentTime.pm}
+          onChange={this.handleChangePM}
+        />
       </div>
     )
   }

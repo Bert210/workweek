@@ -56,8 +56,8 @@ a {
 }
 
 .SideBar {
-	width: 240px;
-	display: inline-block; 
+  width: 220px;
+	display: inline-block;
 }
 
 .MainPane {

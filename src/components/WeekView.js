@@ -10,12 +10,12 @@ import WeekTotalHours from './WeekTotalHours'
 
 class WeekView extends Component {
   render() {
-    let days = this.props.days.map(day => {
+    const dayNodes = this.props.days.map(day => {
       return (<Link key={day.id} to={`/day/${day.id}`} ><DayContainer {...day} /></Link>)
     })
     return (
       <div>
-        {days}
+        {dayNodes}
         <div>Week Total: <WeekTotalHours/></div>
       </div>
     )
